@@ -40,9 +40,17 @@ else
   echo "Not a git repository (nor any parent directory). Continuing with filesystem info only."
 fi
 
-section "TODO / FIXME / XXX in the code"
+section "TODO / FIXME / BUG / HACK / XXX in the code"
 grep -rEn --exclude-dir={.git,node_modules,dist,build,vendor,.venv,venv,target} \
-  'TODO|FIXME|XXX' . 2>/dev/null | head -50 || echo "(none found)"
+  'TODO|FIXME|BUG|HACK|XXX' . 2>/dev/null | head -50 || echo "(none found)"
+
+if [ -f .gitmodules ]; then
+  section "Git submodules"
+  git submodule status 2>/dev/null || echo "(failed to read submodule status)"
+else
+  section "Git submodules"
+  echo "(no .gitmodules — no submodules)"
+fi
 
 section "Folder structure (2 levels)"
 find . -maxdepth 2 -mindepth 1 \
@@ -65,6 +73,15 @@ for doc in README.md README.MD readme.md CLAUDE.md; do
 done
 
 if [ -f HANDOFF.md ]; then
-  section "Existing HANDOFF.md"
+  section "Existing HANDOFF.md (single-file, legacy or brief mode)"
   cat HANDOFF.md
+fi
+
+if [ -d handoff ]; then
+  section "Existing handoff/ folder"
+  for f in handoff/*.md; do
+    [ -f "$f" ] || continue
+    printf '\n--- %s ---\n' "$f"
+    cat "$f"
+  done
 fi

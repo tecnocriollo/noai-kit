@@ -30,14 +30,18 @@ tools (Codex, GitHub Copilot, Cursor, ...).
 
 ## What it includes today
 
-- **`handoff`** — generates or updates a `HANDOFF.md` file at the root of
-  your project with everything a person needs to keep working by hand:
-  current state (branch, commits, pending changes), how to run the
-  project, architecture, recent decisions, and next steps. Invoked with
-  `/handoff` (or `/handoff brief` for a condensed version).
-- **`handoff-schedule`** — keeps `HANDOFF.md` fresh on its own, by
-  installing a local cron entry that runs `handoff` automatically every
-  30 minutes, hourly, daily, or on a custom cadence. Invoked with
+- **`handoff`** — generates or updates a `handoff/` documentation folder
+  at the root of your project: a `README.md` quickstart that links out to
+  `architecture.md`, `dependencies.md`, `known-issues.md`, `backlog.md`,
+  `where-to-start.md`, and `state.md` — everything a person needs to keep
+  working by hand, split so it's actually navigable instead of one giant
+  file. If the project has git submodules, it offers to generate the same
+  folder inside each of them too. Invoked with `/handoff` (or `/handoff
+  brief` for a single condensed `HANDOFF.md` file instead of the full
+  folder).
+- **`handoff-schedule`** — keeps the `handoff/` docs fresh on their own,
+  by installing a local cron entry that runs `handoff` automatically
+  every 30 minutes, hourly, daily, or on a custom cadence. Invoked with
   `/handoff-schedule 30m`, `/handoff-schedule 1h`, `/handoff-schedule
   daily`, `/handoff-schedule status`, or `/handoff-schedule stop`.
 

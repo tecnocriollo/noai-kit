@@ -8,7 +8,8 @@ agent when the service is unavailable.
 - `.claude-plugin/plugin.json` — plugin manifest.
 - `.claude-plugin/marketplace.json` — self-hosted marketplace listing (this
   repo lists itself as its only plugin, source `.`).
-- `skills/handoff/` — skill that generates `HANDOFF.md` for the target
+- `skills/handoff/` — skill that generates a `handoff/` documentation
+  folder (or a single `HANDOFF.md` in `brief` mode) for the target
   project.
 - `skills/handoff-schedule/` — skill that installs/removes a local cron
   entry to run `handoff` automatically on an interval.
@@ -35,3 +36,14 @@ agent when the service is unavailable.
   it with `/plugin marketplace add tecnocriollo/noai-kit` directly from
   GitHub instead of only via a local path, without needing a separate
   marketplace repo for a single plugin.
+- **2026-09-08**: `handoff`'s `full` mode now writes a `handoff/` folder
+  (README quickstart + architecture/dependencies/known-issues/backlog/
+  where-to-start/state, each its own file) instead of one `HANDOFF.md`,
+  after testing the old single-file output against `tecnocriollo-showcase`
+  and finding it too thin to be genuinely useful. `brief` mode is
+  unchanged. Also added: migration from a legacy `HANDOFF.md` to a stub
+  pointer, an offer to generate the same folder inside git submodules
+  (detected via `.gitmodules`/`git submodule status` in
+  `gather-context.sh`), and skipping all interactive offers when running
+  headlessly (so `handoff-schedule`'s `claude -p "/handoff"` runs don't
+  block on unanswerable questions).
