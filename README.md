@@ -43,15 +43,19 @@ tools (Codex, GitHub Copilot, Cursor, ...).
 
 ## Installing in Claude Code
 
-As a local plugin, while it isn't published to a marketplace yet:
+This repo is its own marketplace, so you can add it straight from GitHub:
+
+```
+/plugin marketplace add tecnocriollo/noai-kit
+/plugin install noai-kit
+```
+
+For local development, point at your working copy instead:
 
 ```
 /plugin marketplace add /path/to/noai-kit
 /plugin install noai-kit
 ```
-
-Or add the repo directly as the plugin source once it's published on
-GitHub.
 
 ## Roadmap
 

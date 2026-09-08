@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "noai-kit",
+  "description": "Marketplace for the noai-kit plugin — tools for continuing development without an AI coding agent when the service is unavailable.",
+  "owner": {
+    "name": "tecnocriollo",
+    "email": "psanchez1982@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "noai-kit",
+      "description": "Tools for continuing development without an AI coding agent when the service is unavailable.",
+      "author": {
+        "name": "tecnocriollo",
+        "email": "psanchez1982@gmail.com"
+      },
+      "category": "documentation",
+      "source": ".",
+      "homepage": "https://github.com/tecnocriollo/noai-kit"
+    }
+  ]
+}

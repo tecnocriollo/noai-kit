@@ -6,6 +6,8 @@ agent when the service is unavailable.
 ## Structure
 
 - `.claude-plugin/plugin.json` — plugin manifest.
+- `.claude-plugin/marketplace.json` — self-hosted marketplace listing (this
+  repo lists itself as its only plugin, source `.`).
 - `skills/handoff/` — skill that generates `HANDOFF.md` for the target
   project.
 - `skills/handoff-schedule/` — skill that installs/removes a local cron
@@ -28,3 +30,8 @@ agent when the service is unavailable.
   project (schedule via `handoff-schedule`, or stay on-demand) instead of
   requiring people to discover `handoff-schedule` on their own. It only
   asks once — after `HANDOFF.md` exists, the choice is assumed made.
+- **2026-09-08**: added `.claude-plugin/marketplace.json` so the repo is
+  self-hosted (lists itself as its only plugin) — this lets people install
+  it with `/plugin marketplace add tecnocriollo/noai-kit` directly from
+  GitHub instead of only via a local path, without needing a separate
+  marketplace repo for a single plugin.
