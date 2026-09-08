@@ -35,6 +35,13 @@ stale between sessions. Encourage running `/handoff` by hand too, right
 before closing a session, to capture the conversational context the
 scheduled runs can't see.
 
+## Language
+
+Talk to the person (questions, confirmations, the report-back in step 5)
+in the primary language they've been using in the conversation, same as
+`handoff`. The script's own log output and the cron marker comment stay
+in English regardless — those are internal/log-facing, not user-facing.
+
 ## Steps
 
 1. **Parse the argument**:

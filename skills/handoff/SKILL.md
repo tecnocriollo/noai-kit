@@ -18,6 +18,15 @@ Determine the level from the argument received:
 - No argument, or `full`: complete document (the "Full" template below).
 - `brief`: condensed version (the "Brief" template below).
 
+## Language
+
+Write `HANDOFF.md`, and anything said to the person (including the
+first-time offer below), in the primary language the person has been
+using in the conversation. Do not default to English just because this
+skill's own instructions are written in English — that's purely for the
+plugin's maintainability. If the conversation has mixed languages or the
+language isn't clear, default to English.
+
 ## Steps
 
 1. **Locate the target project root**: the first directory upward from
