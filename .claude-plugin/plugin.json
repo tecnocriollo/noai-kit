@@ -9,5 +9,5 @@
   "homepage": "https://github.com/tecnocriollo/noai-kit",
   "repository": "https://github.com/tecnocriollo/noai-kit",
   "license": "MIT",
-  "keywords": ["continuity", "handoff", "offline", "documentation", "claude-code"]
+  "keywords": ["continuity", "handoff", "offline", "documentation", "claude-code", "cron", "schedule"]
 }

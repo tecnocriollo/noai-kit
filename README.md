@@ -35,6 +35,11 @@ tools (Codex, GitHub Copilot, Cursor, ...).
   current state (branch, commits, pending changes), how to run the
   project, architecture, recent decisions, and next steps. Invoked with
   `/handoff` (or `/handoff brief` for a condensed version).
+- **`handoff-schedule`** — keeps `HANDOFF.md` fresh on its own, by
+  installing a local cron entry that runs `handoff` automatically every
+  30 minutes, hourly, daily, or on a custom cadence. Invoked with
+  `/handoff-schedule 30m`, `/handoff-schedule 1h`, `/handoff-schedule
+  daily`, `/handoff-schedule status`, or `/handoff-schedule stop`.
 
 ## Installing in Claude Code
 
@@ -54,6 +59,8 @@ GitHub.
   Cursor.
 - Add more skills focused on continuing without AI (e.g. manual
   troubleshooting checklists, runbook generation).
+- Support scheduling backends beyond local cron (e.g. GitHub Actions,
+  systemd timers, Windows Task Scheduler) for `handoff-schedule`.
 
 ## License
 
