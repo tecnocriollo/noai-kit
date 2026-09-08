@@ -24,3 +24,7 @@ agent when the service is unavailable.
   It drives a local `crontab` entry that calls `claude -p "/handoff"`
   headlessly, since that works today without depending on any
   Claude-specific cloud scheduling infrastructure.
+- **2026-09-08**: `handoff` now offers scheduling on its first run for a
+  project (schedule via `handoff-schedule`, or stay on-demand) instead of
+  requiring people to discover `handoff-schedule` on their own. It only
+  asks once — after `HANDOFF.md` exists, the choice is assumed made.

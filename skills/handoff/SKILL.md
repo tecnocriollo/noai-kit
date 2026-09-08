@@ -50,7 +50,22 @@ Determine the level from the argument received:
    no tests, or it's unclear how the project is deployed), say so
    explicitly in the relevant section instead of assuming.
 
-6. When done, tell the person the path of the file written and a brief
+6. **First-time offer.** If `HANDOFF.md` did not exist before this run
+   (this is the first time `handoff` runs for this project), ask the
+   person whether they want `HANDOFF.md` to stay fresh automatically from
+   now on, or prefer to keep running `/handoff` on demand whenever they
+   want. Offer it as an explicit choice, don't set anything up on your
+   own:
+   - **Schedule it**: hand off to the [`handoff-schedule`](../handoff-schedule/SKILL.md)
+     skill with the interval they pick (e.g. every 30 minutes, hourly,
+     daily).
+   - **On demand**: do nothing further — running `/handoff` manually
+     whenever they want is a completely valid way to use this skill.
+   Skip this offer on every run after the first — once `HANDOFF.md`
+   already exists, assume the choice was already made (or deliberately
+   skipped) and don't ask again.
+
+7. When done, tell the person the path of the file written and a brief
    summary of which sections were updated.
 
 ## Template — `full` mode

@@ -9,7 +9,10 @@ argument-hint: "<30m|1h|6h|daily|status|stop>"
 
 Set up, check, or remove a recurring local schedule that runs the
 [`handoff`](../handoff/SKILL.md) skill automatically, so `HANDOFF.md` stays
-fresh even if nobody remembers to run `/handoff` by hand.
+fresh even if nobody remembers to run `/handoff` by hand. This is also the
+skill `handoff` hands off to when it offers scheduling on its first run
+for a project — invoke it the same way whether the person opted in there
+or asked for it directly.
 
 ## How it works
 
