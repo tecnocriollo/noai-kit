@@ -1,5 +1,27 @@
 # noai-kit
 
+> It's 2 a.m. You are building the product that will change the world.
+> One feature stands between you and launch. Just one.
+>
+> Then Claude goes down. **Service disruption.** You refresh. Still down.
+>
+> You switch to Codex. *"You've hit your usage limit."* Of course you have.
+>
+> You open Cursor as a last resort. It spins. It stalls. It dies.
+>
+> Silence. Just you, a blinking cursor, and thousands of lines of code
+> you've never truly had to read on your own — because something else
+> always read them for you.
+>
+> You know how to code. That was never the question. The question is
+> whether you can find your way through *this* codebase, *tonight*,
+> with no guide and no map, before the deadline swallows you whole.
+>
+> You take a breath. And then you remember — you saw a repo for
+> something like this once...
+>
+> **noai-kit is here to save you. 🔦**
+
 A toolkit for continuing development without an AI coding agent when the
 service is unavailable (outage, network issue, usage limit reached, etc.).
 It starts as a plugin for [Claude Code](https://claude.com/claude-code);
