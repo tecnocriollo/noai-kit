@@ -47,3 +47,8 @@ agent when the service is unavailable.
   `gather-context.sh`), and skipping all interactive offers when running
   headlessly (so `handoff-schedule`'s `claude -p "/handoff"` runs don't
   block on unanswerable questions).
+- **2026-09-08**: `handoff/README.md` now includes a Quickstart section
+  (install + run, condensed from `dependencies.md`) right in the entry
+  point, found missing after re-testing against `tecnocriollo-showcase` —
+  landing on the quickstart file and having to click into another file
+  just to start the project defeated the point of a quickstart.

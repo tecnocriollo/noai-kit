@@ -1,7 +1,7 @@
 ---
 name: handoff
 description: This skill should be used when the user asks to "generate a handoff doc", "prepare continuity documentation", "leave everything documented in case the agent goes down", "prepare the project to continue without AI", or wants a snapshot a human can use to keep developing manually if AI coding agents (Claude Code, Codex, GitHub Copilot, Cursor, etc.) become unavailable.
-version: 0.2.0
+version: 0.2.1
 argument-hint: "[full|brief]"
 ---
 
@@ -126,10 +126,19 @@ _Generated: <ISO date>_
 
 <one paragraph: what this project is, who it's for, how mature it is>
 
+## Quickstart
+
+<the minimum to get the project running right now: install + run
+commands (and build/test if there's a single obvious one), condensed
+from dependencies.md. This is the "just get me going" version — anyone
+who only reads this section and nothing else should be able to start the
+project. Point to dependencies.md for anything more involved (system-level
+deps, version requirements, per-subproject setup).>
+
 ## Start here
 
 - [architecture.md](./architecture.md) — structure and key design decisions
-- [dependencies.md](./dependencies.md) — how to install and run
+- [dependencies.md](./dependencies.md) — full dependency and setup details
 - [where-to-start.md](./where-to-start.md) — entry points and how to make your first change
 - [backlog.md](./backlog.md) — what's next, in priority order
 - [known-issues.md](./known-issues.md) — known bugs and limitations
