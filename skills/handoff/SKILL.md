@@ -1,102 +1,103 @@
 ---
 name: handoff
-description: This skill should be used when the user asks to "generate a handoff doc", "prepare continuity documentation", "genera documentación de continuidad", "dejá todo documentado por si se cae el agente", "prepará el proyecto para seguir sin IA", or wants a snapshot a human can use to keep developing manually if AI coding agents (Claude Code, Codex, GitHub Copilot, Cursor, etc.) become unavailable.
+description: This skill should be used when the user asks to "generate a handoff doc", "prepare continuity documentation", "leave everything documented in case the agent goes down", "prepare the project to continue without AI", or wants a snapshot a human can use to keep developing manually if AI coding agents (Claude Code, Codex, GitHub Copilot, Cursor, etc.) become unavailable.
 version: 0.1.0
 argument-hint: "[full|brief]"
 ---
 
 # Handoff
 
-Generar o actualizar un archivo `HANDOFF.md` en la raíz del proyecto
-objetivo, con la información que una persona necesitaría para seguir
-desarrollando manualmente si los servicios de agentes de código (Claude
-Code, Codex, GitHub Copilot, Cursor, etc.) dejan de estar disponibles.
+Generate or update a `HANDOFF.md` file at the root of the target project,
+with the information a person would need to keep developing manually if
+AI coding agent services (Claude Code, Codex, GitHub Copilot, Cursor,
+etc.) become unavailable.
 
-## Nivel de detalle
+## Detail level
 
-Determinar el nivel a partir del argumento recibido:
-- Sin argumento, o `full`: documento completo (plantilla "Full" abajo).
-- `brief`: versión resumida (plantilla "Brief" abajo).
+Determine the level from the argument received:
+- No argument, or `full`: complete document (the "Full" template below).
+- `brief`: condensed version (the "Brief" template below).
 
-## Pasos
+## Steps
 
-1. **Ubicar la raíz del proyecto objetivo**: el primer directorio hacia
-   arriba desde el directorio de trabajo actual que contenga `.git`. Si no
-   hay ninguno, usar el directorio de trabajo actual y aclararlo en el
-   documento.
+1. **Locate the target project root**: the first directory upward from
+   the current working directory that contains `.git`. If there is none,
+   use the current working directory and note that explicitly in the
+   document.
 
-2. **Recolectar contexto determinístico** corriendo
-   `scripts/gather-context.sh <raíz-del-proyecto>`. El script imprime rama
-   actual, últimos commits, cambios sin commitear, TODOs/FIXMEs, estructura
-   de carpetas, y contenido relevante de manifests y documentación
-   existente. Si el script informa que no hay `.git`, seguir solo con lo
-   que se pueda inspeccionar del filesystem.
+2. **Collect deterministic context** by running
+   `scripts/gather-context.sh <project-root>`. The script prints the
+   current branch, recent commits, uncommitted changes, TODOs/FIXMEs,
+   folder structure, and relevant content from manifests and existing
+   documentation. If the script reports there is no `.git`, continue
+   using only what can be inspected from the filesystem.
 
-3. **Sumar contexto de la sesión actual**: repasar la conversación en curso
-   e identificar qué se estaba haciendo, qué decisiones se tomaron y por
-   qué, y qué próximos pasos ya se discutieron con la persona. Esta parte
-   no la cubre el script — sale exclusivamente del contexto de la sesión.
+3. **Add context from the current session**: review the ongoing
+   conversation and identify what was being worked on, what decisions
+   were made and why, and what next steps were already discussed with
+   the person. This part is not covered by the script — it comes
+   exclusively from the session context.
 
-4. **Escribir o actualizar `HANDOFF.md`** en la raíz del proyecto objetivo:
-   - Si el archivo no existe, crearlo con la plantilla correspondiente
-     (`full` o `brief`).
-   - Si ya existe, actualizarlo: refrescar las secciones que cambiaron
-     (estado actual, próximos pasos) y conservar decisiones o contexto
-     histórico que siga siendo válido en vez de descartarlo sin criterio.
+4. **Write or update `HANDOFF.md`** at the root of the target project:
+   - If the file doesn't exist, create it using the matching template
+     (`full` or `brief`).
+   - If it already exists, update it: refresh the sections that changed
+     (current state, next steps) and keep decisions or historical
+     context that's still valid instead of discarding it without cause.
 
-5. **No inventar información.** Si algo no se puede determinar con el
-   script o con la sesión actual (por ejemplo, no hay `README`, no hay
-   tests, no está claro cómo se despliega), decirlo explícitamente en el
-   documento en la sección correspondiente en vez de asumir.
+5. **Do not invent information.** If something can't be determined from
+   the script or the current session (for example, there's no `README`,
+   no tests, or it's unclear how the project is deployed), say so
+   explicitly in the relevant section instead of assuming.
 
-6. Al terminar, indicar a la persona la ruta del archivo escrito y un
-   resumen breve de qué secciones se actualizaron.
+6. When done, tell the person the path of the file written and a brief
+   summary of which sections were updated.
 
-## Plantilla — modo `full`
+## Template — `full` mode
 
 ```markdown
-# Handoff — <nombre del proyecto>
-_Generado: <fecha ISO> · Modo: full_
+# Handoff — <project name>
+_Generated: <ISO date> · Mode: full_
 
-## Qué es este proyecto
-<qué hace, para quién, en qué estado de madurez está>
+## What this project is
+<what it does, who it's for, how mature it is>
 
-## Estado actual
-- Branch: <rama actual>
-- Últimos commits: <lista breve>
-- Cambios sin commitear: <sí/no y detalle>
+## Current state
+- Branch: <current branch>
+- Recent commits: <short list>
+- Uncommitted changes: <yes/no and detail>
 
-## Cómo levantar el proyecto
-<comandos de instalación, build, test, run — sacados de manifests/README>
+## How to run the project
+<install, build, test, run commands — sourced from manifests/README>
 
-## Arquitectura y estructura clave
-<carpetas principales y su propósito>
+## Architecture and key structure
+<main folders and their purpose>
 
-## Trabajo en curso y decisiones recientes
-<qué se estaba haciendo en la última sesión, qué se decidió y por qué>
+## Work in progress and recent decisions
+<what was being worked on in the last session, what was decided and why>
 
-## Próximos pasos
-<TODOs del código + lo discutido en sesión, en orden de prioridad>
+## Next steps
+<TODOs from the code + what was discussed in session, in priority order>
 
-## Cómo seguir sin un agente de IA
-<pasos concretos: dónde mirar primero, comandos clave, checks a correr>
+## How to continue without an AI agent
+<concrete steps: where to look first, key commands, checks to run>
 
-## Información no disponible
-<qué no se pudo determinar y por qué, si aplica>
+## Information not available
+<what couldn't be determined and why, if applicable>
 ```
 
-## Plantilla — modo `brief`
+## Template — `brief` mode
 
 ```markdown
-# Handoff breve — <nombre del proyecto>
-_Generado: <fecha ISO> · Modo: brief_
+# Brief handoff — <project name>
+_Generated: <ISO date> · Mode: brief_
 
-## Estado actual
-<rama, último commit, cambios pendientes>
+## Current state
+<branch, latest commit, pending changes>
 
-## Próximos pasos
-<lista corta>
+## Next steps
+<short list>
 
-## Comandos esenciales
+## Essential commands
 <install / build / test / run>
 ```

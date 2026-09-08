@@ -1,17 +1,18 @@
 # noai-kit
 
-Plugin de Claude Code con herramientas para seguir desarrollando sin
-depender de un agente de IA cuando el servicio no está disponible.
+A Claude Code plugin with tools for continuing development without an AI
+agent when the service is unavailable.
 
-## Estructura
+## Structure
 
-- `.claude-plugin/plugin.json` — manifest del plugin.
-- `skills/handoff/` — skill que genera `HANDOFF.md` en el proyecto objetivo.
+- `.claude-plugin/plugin.json` — plugin manifest.
+- `skills/handoff/` — skill that generates `HANDOFF.md` for the target
+  project.
 
-## Historial de cambios
+## Changelog
 
-- **2026-09-08**: scaffold inicial del plugin y del skill `handoff`.
-  Se definió como plugin de Claude Code (con vista a soportar otros agentes
-  como Codex, Copilot y Cursor a futuro) porque el objetivo es que
-  cualquier proyecto pueda generar su propia documentación de continuidad
-  sin depender de que la IA siga disponible para explicarla.
+- **2026-09-08**: initial scaffold of the plugin and the `handoff` skill.
+  It was set up as a Claude Code plugin (with an eye toward supporting
+  other agents like Codex, Copilot, and Cursor later on), since the goal
+  is for any project to be able to generate its own continuity
+  documentation without depending on AI staying available to explain it.

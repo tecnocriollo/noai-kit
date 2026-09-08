@@ -1,7 +1,7 @@
 {
   "name": "noai-kit",
   "version": "0.1.0",
-  "description": "Herramientas para seguir desarrollando sin depender de un agente de IA cuando el servicio no está disponible.",
+  "description": "Tools for continuing development without an AI coding agent when the service is unavailable.",
   "author": {
     "name": "tecnocriollo",
     "email": "psanchez1982@gmail.com"

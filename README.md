@@ -1,39 +1,38 @@
 # noai-kit
 
-Kit de herramientas para seguir desarrollando sin depender de un agente de
-IA cuando el servicio no está disponible (caída, corte de red, límite de
-uso agotado, etc.). Empieza como plugin de [Claude
-Code](https://claude.com/claude-code); la idea es que los skills que trae
-sean lo bastante genéricos como para adaptarse después a otras
-herramientas (Codex, GitHub Copilot, Cursor, ...).
+A toolkit for continuing development without an AI coding agent when the
+service is unavailable (outage, network issue, usage limit reached, etc.).
+It starts as a plugin for [Claude Code](https://claude.com/claude-code);
+the goal is to keep its skills generic enough to later adapt to other
+tools (Codex, GitHub Copilot, Cursor, ...).
 
-## Qué trae hoy
+## What it includes today
 
-- **`handoff`** — genera o actualiza un `HANDOFF.md` en la raíz de tu
-  proyecto con todo lo que una persona necesita para seguir trabajando a
-  mano: estado actual (rama, commits, cambios pendientes), cómo levantar el
-  proyecto, arquitectura, decisiones recientes y próximos pasos. Se invoca
-  con `/handoff` (opcionalmente `/handoff brief` para una versión resumida).
+- **`handoff`** — generates or updates a `HANDOFF.md` file at the root of
+  your project with everything a person needs to keep working by hand:
+  current state (branch, commits, pending changes), how to run the
+  project, architecture, recent decisions, and next steps. Invoked with
+  `/handoff` (or `/handoff brief` for a condensed version).
 
-## Instalación en Claude Code
+## Installing in Claude Code
 
-Como plugin local, mientras no esté publicado en un marketplace:
+As a local plugin, while it isn't published to a marketplace yet:
 
 ```
-/plugin marketplace add /ruta/a/noai-kit
+/plugin marketplace add /path/to/noai-kit
 /plugin install noai-kit
 ```
 
-O agregando el repo directamente como fuente del plugin una vez publicado
-en GitHub.
+Or add the repo directly as the plugin source once it's published on
+GitHub.
 
 ## Roadmap
 
-- Adaptar `handoff` (o una versión equivalente) para Codex, GitHub Copilot
-  y Cursor.
-- Sumar más skills orientados a continuidad sin IA (por ejemplo, checklists
-  de troubleshooting manual, generación de runbooks).
+- Adapt `handoff` (or an equivalent) for Codex, GitHub Copilot, and
+  Cursor.
+- Add more skills focused on continuing without AI (e.g. manual
+  troubleshooting checklists, runbook generation).
 
-## Licencia
+## License
 
-MIT — ver [LICENSE](./LICENSE).
+MIT — see [LICENSE](./LICENSE).
