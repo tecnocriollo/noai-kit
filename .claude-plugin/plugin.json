@@ -1,6 +1,6 @@
 {
   "name": "noai-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tools for continuing development without an AI coding agent when the service is unavailable.",
   "author": {
     "name": "tecnocriollo",
@@ -9,5 +9,5 @@
   "homepage": "https://github.com/tecnocriollo/noai-kit",
   "repository": "https://github.com/tecnocriollo/noai-kit",
   "license": "MIT",
-  "keywords": ["continuity", "handoff", "offline", "documentation", "claude-code", "cron", "schedule"]
+  "keywords": ["continuity", "handoff", "offline", "documentation", "claude-code", "cron", "schedule", "hooks", "automation"]
 }

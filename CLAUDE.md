@@ -13,6 +13,11 @@ agent when the service is unavailable.
   project.
 - `skills/handoff-schedule/` — skill that installs/removes a local cron
   entry to run `handoff` automatically on an interval.
+- `skills/handoff-auto/` — skill that toggles a per-project flag file to
+  enable/disable the event-based auto-handoff hook.
+- `hooks/hooks.json`, `hooks/auto-handoff-check.sh` — plugin-level `Stop`
+  hook that triggers `handoff` after a medium/large uncommitted change,
+  opt-in per project via `.noai-kit/auto-handoff.json`.
 
 ## Changelog
 
@@ -52,3 +57,17 @@ agent when the service is unavailable.
   point, found missing after re-testing against `tecnocriollo-showcase` —
   landing on the quickstart file and having to click into another file
   just to start the project defeated the point of a quickstart.
+- **2026-09-08**: added `handoff-auto`, a third (event-based) way to
+  trigger `handoff`, alongside manual and `handoff-schedule` (time-based).
+  A bundled plugin `Stop` hook (`hooks/hooks.json` +
+  `hooks/auto-handoff-check.sh`) blocks the session from stopping after a
+  medium/large uncommitted change (≥3 files or ≥80 lines, measured via
+  `git diff HEAD` plus untracked files since new files don't show up in
+  `git diff HEAD` at all) and asks Claude to run `/handoff` first. Opt-in
+  per project via `.noai-kit/auto-handoff.json`, so installing the plugin
+  has no effect until a project turns it on — and toggling it requires a
+  session restart, since Claude Code only loads hooks at session start.
+  Caught and fixed during testing: the hook's own state/flag files under
+  `.noai-kit/` were being counted as part of the "uncommitted change"
+  they measure, which retriggered on every single `Stop` attempt forever
+  — now explicitly excluded.

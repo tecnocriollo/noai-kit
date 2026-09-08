@@ -44,6 +44,14 @@ tools (Codex, GitHub Copilot, Cursor, ...).
   every 30 minutes, hourly, daily, or on a custom cadence. Invoked with
   `/handoff-schedule 30m`, `/handoff-schedule 1h`, `/handoff-schedule
   daily`, `/handoff-schedule status`, or `/handoff-schedule stop`.
+- **`handoff-auto`** — a third, event-based way to stay fresh: once
+  turned on for a project, a bundled `Stop` hook asks Claude to run
+  `handoff` whenever the session made a medium/large uncommitted change
+  (≥3 files or ≥80 changed lines) that isn't documented yet, instead of
+  waiting for a fixed interval. Off by default, opt-in per project.
+  Invoked with `/handoff-auto on`, `/handoff-auto off`, or
+  `/handoff-auto status`. **Requires restarting the Claude Code session**
+  after toggling — hooks only load at session start.
 
 ## Installing in Claude Code
 
