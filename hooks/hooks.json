@@ -1,0 +1,16 @@
+{
+  "description": "noai-kit: optionally trigger the handoff skill before the session stops, when a medium/large uncommitted change is detected (opt-in per project via /handoff-auto).",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/auto-handoff-check.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
